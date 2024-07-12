@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="resultField"></p>
+    <button id="stone" onclick="play()">Stone</button>
+    <button id="paper" onclick="play()">Paper</button>
+    <button id="scissor" onclick="play()">Scissor</button>
+
+    <script>
+        const arr = ["Stone", "Paper", "Scissor"];
+        function play(){
+            let computerChoice = Math.random()*arr.length;
+            computerChoice = Math.floor(computerChoice);
+            playerChoice = document.querySelector('button').innerText;
+            if (arr[computerChoice] == playerChoice){
+                document.getElementById('resultField').innerHTML = 
+                `
+                <h2> Match draw between you and computer </h2>
+                `;
+            }
+            else if (arr[computerChoice]=="Stone"&&playerChoice=="Scissor"){
+                document.getElementById('resultField').innerHTML = 
+                `
+                <h2> Computer Won the Match!! </h2>
+                `;
+            }
+            else if (arr[computerChoice]=="Stone"&&playerChoice=="Paper"){
+                document.getElementById('resultField').innerHTML = 
+                `
+                <h2> You Won the Match!! </h2>
+                `;
+            }
+            else if (arr[computerChoice]=="Paper"&&playerChoice=="Scissor"){
+                document.getElementById('resultField').innerHTML = 
+                `
+                <h2> You Won the Match!! </h2>
+                `;
+            }
+            else if (arr[computerChoice]=="Paper"&&playerChoice=="Stone"){
+                document.getElementById('resultField').innerHTML = 
+                `
+                <h2> Computer Won the Match!!  </h2>
+                `;
+            }
+            else if (arr[computerChoice]=="Scissor"&&playerChoice=="Paper"){
+                document.getElementById('resultField').innerHTML = 
+                `
+                <h2> Computer Won the Match!!  </h2>
+                `;
+            }
+            else if (arr[computerChoice]=="Scissor"&&playerChoice=="Stone"){
+                document.getElementById('resultField').innerHTML = 
+                `
+                <h2> You Won the Match!!  </h2>
+                `;
+            }
+            else{
+                document.getElementById('resultField').innerHTML = 
+                `
+                <h2> Something Went wrong from our side 😑 </h2>
+                `; 
+            }
+        }
+    </script>
+</body>
+</html>
